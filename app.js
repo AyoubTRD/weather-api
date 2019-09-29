@@ -3,6 +3,8 @@ const getWeather = require("./utils/getforecast");
 const express = require("express");
 const app = express();
 
+const port = process.env.PORT || 5000;
+
 const cors = require("cors");
 
 app.use(cors());
@@ -24,6 +26,4 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(process.env.port || 5000, () =>
-  console.log("The server has started...")
-);
+app.listen(port, () => console.log("The server has started..."));
