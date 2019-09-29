@@ -7,8 +7,9 @@ const keys = {
 };
 
 const getGeoUrl = query => {
-  query = query.replace(/ /g, "%20");
-  return `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${keys.geoCoding}`;
+  return `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+    query
+  )}.json?access_token=${keys.geoCoding}`;
 };
 
 const getGeoInfo = (query, cb) => {
