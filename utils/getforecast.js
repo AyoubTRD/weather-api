@@ -17,12 +17,16 @@ const getGeoInfo = (query, cb) => {
   request({ url, json: true }, (err, res) => {
     if (err) {
       return cb(null, null, err);
-    } else {
-      const result = res.body.features[0];
+    }
+    const result = res.body.features[0];
+    if (result) {
       const coords = result.geometry.coordinates;
       const place = result.place_name;
-      return cb(coords, place);
+      if (coords) {
+        return cb(coords, place);
+      }
     }
+    return cb([], undefined);
   });
 };
 
