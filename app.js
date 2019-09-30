@@ -16,7 +16,16 @@ app.get("/getforecast", (req, res) => {
     });
   }
   getWeather(req.query.q, (err, data, place) => {
-    res.send(data);
+    if (err) {
+      res.status(404).send({
+        error: "An error occured while getting data"
+      });
+    }
+    const response = {
+      data,
+      place
+    };
+    res.send(response);
   });
 });
 
