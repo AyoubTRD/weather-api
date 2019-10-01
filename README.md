@@ -3,4 +3,4 @@
   
 ### HOW IT WORKS: 
 
-  The api gets a query which is the location and then sends that location to the <strong>mapbox</strong> api, which gets a location and sends the longtitude and the latitude, which are going to be used to get the forecast from the <strong>darksky</strong> api.
+  The api gets a query which is the location and then sends that location to the <strong>mapbox</strong> api, which receives a location and sends the longtitude and the latitude for that location, which are going to be used to get the forecast from the <strong>darksky</strong> api.
